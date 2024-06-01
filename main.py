@@ -12,7 +12,7 @@ listF = ["La mayoría de las personas que sufren adicción tecnológica experime
 listE = ["Cara",
          "Sello"]
 
-@app.route("/")
+@app.route("/a")
 def index():
     return f'<a href="/random_fact">'"¡Ver un dato aleatorio!"'</a>'
 
@@ -20,13 +20,9 @@ def index():
 def facts():
     return f'<p>{random.choice(listF)}</p>'
 
-
-@app.route("/")
-def a():
-    return f'<a href="/cara_o_sello">'"Cara o sello"'</a>'
-
-@app.route("/cara_o_sello")
-def b():
-    return f'<p>{random.choice(listE)}</p>'
+@app.route
+def cara_o_sello():
+    resultado = random.choice(["Cara", "Sello"])
+    return f"<p>Resultado del lanzamiento: {resultado}</p>"
 
 app.run(debug=True)
